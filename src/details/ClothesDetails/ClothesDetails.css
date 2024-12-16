@@ -1,0 +1,668 @@
+.product-details-container-2 {
+  display: flex;
+  margin-top: 200px;
+}
+
+/* Image Gallery Styles */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  margin-top: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: 50px;
+}
+
+.main-image {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  height: 500px;
+  margin-top: -80px;
+  margin-left: -350px;
+}
+
+.main-image img {
+  margin-left: -100px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.thumbnails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-height: 500px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: -50px;
+  max-width: 250px;
+}
+
+.thumbnails img {
+  gap: 50px;
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0.9; /* Slightly transparent for better hover effect */
+}
+
+.thumbnails img:hover,
+.thumbnails img.thumbnail-active {
+  border-color: #007bff;
+  opacity: 1; /* Remove transparency on hover */
+  transform: scale(1.05); /* Zoom effect */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .product-details-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-image,
+  .thumbnails {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .main-image {
+    height: auto;
+  }
+
+  .thumbnails {
+    max-height: none;
+    overflow: visible;
+    margin-top: 10px;
+  }
+}
+/* Genel Ayarlar */
+
+.container-details {
+  width: 1300px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.product-information-section h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom:10px;
+margin-top: -10px;
+color: #ff9800;
+}
+
+.product-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 500px;
+}
+
+/* Fiyatlandırma */
+.product-pricing {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: -20px;
+margin-left: -75px;
+}
+
+.current-price {
+  font-size: 25px;
+  color: #e60023;
+  font-weight: bold;
+  margin-right: 15px;
+  text-align: center;
+  align-items: center;
+
+}
+
+.original-price {
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.product-discount {
+  font-size: 14px;
+ position: absolute;
+  color: #e60023;
+  margin-top: -40px;
+  margin-left: 220px;
+  background-color: #ffe6e6;
+  padding: 5px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* Zamanlayıcı */
+.product-timer {
+  font-size: 14px;
+  color: #ff9800;
+  width: 10%;
+  margin-top: -40px;
+  margin-left: 350px;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  border: 1px solid #ff9800;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+/* Renk Seçenekleri */
+.product-color-options {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.color-label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.color-option {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.color-option:hover {
+  border-color: #555;
+}
+
+.color-option.selected {
+  border-color: #000;
+  transform: scale(1.2);
+}
+
+/* Ölçü Seçenekleri */
+.product-size-options {
+  margin-bottom: 20px;
+}
+
+.size-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.size-option {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 14px;
+}
+
+.size-option:hover {
+  background-color: #f0f0f0;
+}
+
+.size-option.selected {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Miktar Seçimi */
+.quantity-selector-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity-selector-container button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.quantity-selector-container button:hover {
+  background-color: #e0e0e0;
+}
+
+.quantity-display {
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Hareket Butonları */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+  position: absolute;
+  margin-left: -6%;
+  margin-top: -47%;
+}
+.product-collection-info{
+  position: absolute;
+  font-size: 14px;
+    color: #ff9800;
+    margin-top: -85%;
+    margin-left: 75%;
+    background-color: #ffe6e6;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.add-to-card-btn{
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  gap: 10px;
+}
+.add-to-card-btn:hover{
+  background-color: #000;
+  transform: scale(1.05);
+
+}
+.action-buttons button {
+width: 50px;
+height: 50px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-buttons button:hover {
+  background-color: black;
+  transform: scale(1.05);
+}
+
+/* Ürün Özellikleri */
+.product-features-list {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  display: flex;
+  gap: 25px;
+
+
+}
+
+.feature-item {
+margin-left: -15px;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Çatdırılma Bilgisi */
+.free-shipping-info,
+.quick-delivery-info {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* Rəylər Bölümü */
+.reviews-section-container {
+  margin-top: 30px;
+}
+
+.reviews-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.review-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.review-author {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.review-comment {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+.add-review-section {
+  width: 780px;
+  margin: 2rem auto;
+  background-color: #f9f9fc;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  margin-left: -800px;
+  margin-top: -180px;
+  height: 350px;
+}
+
+.add-review-section:hover {
+  transform: translateY(-5px);
+}
+
+.add-review-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+  margin-top: -10px;
+}
+
+.add-review-title .review-icon {
+  color: #ff9800;
+  transition: transform 0.3s ease;
+}
+
+.add-review-section:hover .review-icon {
+  transform: rotate(15deg) scale(1.2);
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+  gap: 10px;
+}
+
+.review-input, 
+.review-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e4e8;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.review-input:focus, 
+.review-textarea:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.review-input:hover, 
+.review-textarea:hover {
+  border-color: #ff9800;
+}
+
+.review-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.review-submit-btn {
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.review-submit-btn:hover {
+  background-color: black;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.review-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 600px) {
+  .add-review-section {
+      margin: 1rem;
+      padding: 1.5rem;
+  }
+}
+
+
+/* Offer Timer Container */
+.offer-timer-container-2{
+margin-bottom: 20px;
+margin-top: 20px;
+}
+
+/* Offer Header */
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffc107;
+  padding: 10px;
+  border-radius: 8px;
+  color: #2e2e2e;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* Timer Styling */
+.timer {
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Color Selection */
+.color-selection-2 {
+  margin-bottom: 20px;
+}
+
+.color-title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e2e2e;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.color-item span {
+  font-size: 14px;
+  color: #555;
+}
+
+.color-item.active {
+  border-color: #ffc107;
+  background-color: #fffdfa;
+}
+
+/* Size Selection */
+.size-selection {
+  margin-bottom: 20px;
+}
+
+.size-title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e2e2e;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+}
+
+.size-item {
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.size-item.active {
+  border-color: #ffc107;
+  background-color: #fffdfa;
+}
+
+.size-item.disabled {
+  border-color: #ddd;
+  color: #aaa;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.size-guide-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffc107;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.size-guide-link:hover {
+  color: #e0a800;
+}
+
+/* Quantity Section */
+.quantity-section {
+  margin-bottom: 20px;
+}
+
+.quantity-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e2e2e;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.quantity-dropdown {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.quantity-dropdown:focus {
+  border-color: #ffc107;
+  outline: none;
+}
+
+/* Info Note */
+.info-note {
+  font-size: 14px;
+  color: #666;
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  line-height: 1.5;
+}
+
+.img-bootom-comment{
+  position: absolute;
+  border: 1px solid #ff9800;
+  padding: 10px;
+  margin-left: -770px;
+  width: 600px;
+  border-radius: 10px;
+  margin-top: -250px;
+}
+.comment-1{
+  display: flex;
+  gap: 40px;
+  text-align: center;
+}

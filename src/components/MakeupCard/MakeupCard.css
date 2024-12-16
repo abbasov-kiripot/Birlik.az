@@ -1,0 +1,250 @@
+:root {
+    /* Rəng Palitası */
+    --text-primary: #333;
+    --text-secondary: #666;
+    --background-base: #FFF0F5;
+    --card-background: #FFFFFF;
+    --border-color: #E5E5E5;
+    
+    /* Ölçülər */
+    --border-radius: 16px;
+  }
+  
+  .makeup-card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
+    margin-bottom: 70px;
+    width: 80%;
+  }
+  
+  .makeup-card {
+    width: 300px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-left: 70px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  height: 500px;
+  }
+  
+  .makeup-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .makeup-card-image-container {
+    width: 100%;
+    height:200px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .makeup-card-image {
+    max-width: 130%;
+    max-height: 130%;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    object-position: center;
+    margin-left: 55px;
+    margin-top: -30px;
+  }
+  
+  .makeup-card:hover .makeup-card-image {
+    transform: scale(1.05);
+  }
+  
+  .makeup-card-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .makeup-card-name {
+    font-size: 1.6rem;
+    color: black;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .makeup-card-brand {
+    background-color:#FF4136;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-align: center;
+    align-items: center;
+    width: 32%;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    margin-left: -10px;
+  }
+  
+  .makeup-card-category {
+    display: inline-block;
+    background-color:#FF4136;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 180px;
+  }
+  
+  .makeup-card-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .makeup-card-price {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color:#FF4136;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  
+  .makeup-card-discount {
+    background-color: #FF4136;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    margin-left: -15px;
+    position: absolute;
+    margin-top: -680px;
+  }
+  
+  .makeup-card-ratings {
+    color: #FFA500;
+    font-size: 0.95rem;
+    position: absolute;
+    margin-top: 135px;
+    margin-left: 170px;
+  }
+  
+  .makeup-card-features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 12px;
+    display: flex;
+  }
+  
+  .makeup-card-features li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+  }
+  
+  .makeup-card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+  }
+  
+  .makeup-card-stock {
+    background-color: #FF4500;
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100px;
+    margin-top: 40px;
+    position: absolute;
+    margin-left: 77px;
+  }
+  
+  .makeup-card-stock.low-stock {
+    color: #FF4500;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .makeup-card-button {
+    width: 100%;
+    padding: 12px;
+    background:#FF4136;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .makeup-card-button:hover:not(:disabled) {
+    background-color: black;
+    transform: translateY(-3px);
+  }
+  
+  .makeup-card-button:disabled {
+    background: #CCCCCC;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  @media (max-width: 768px) {
+    .makeup-card-list {
+      padding: 15px;
+      gap: 20px;
+    }
+  
+    .makeup-card {
+      width: 90%;
+      max-width: 100%;
+    }
+  
+    .makeup-card-image-container {
+      height: 220px;
+    }
+  
+    .makeup-card-name {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .makeup-card-image-container {
+      height: 200px;
+    }
+  
+    .makeup-card-details {
+      padding: 15px;
+    }
+  }

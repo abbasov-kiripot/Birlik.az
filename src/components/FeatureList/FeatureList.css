@@ -1,0 +1,39 @@
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 50px;
+    background: white;
+    border-radius: 8px;
+    width: 93%;
+    margin-left: 75px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden; 
+    margin-top: -60px;
+    margin-bottom: 60px;
+  }
+  
+  .feature-item {
+    text-align: center;
+    font-size: 50px;
+  }
+  
+  .feature-icon {
+    font-size: 40px;
+    color: #FF4136;
+    margin-bottom: 10px;
+  }
+  
+  .feature-item h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .feature-item p {
+    font-size: 15px;
+    color: #777;
+  }
+  

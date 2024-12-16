@@ -1,0 +1,746 @@
+/* Global Styles */
+.product-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  margin-top: 200px;
+}
+
+.product-details-wrapper {
+  display: flex;
+  gap: 150px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+/* Product Gallery Styles */
+/* Product Gallery Styles - Updated */
+.product-gallery {
+  flex: 1;
+  display: flex;
+  gap: 20px; /* Ana görsel ile küçük görseller arasına boşluk */
+  margin-left: -150px;
+}
+
+.main-image-container {
+  flex: 3; /* Ana görsel daha geniş alan kaplasın */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px; /* Sabit yükseklik */
+  margin-top: -80px;
+}
+
+.main-image-container img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  margin-right: 50px;
+}
+
+.thumbnail-gallery {
+  flex: 1; /* Küçük görseller daha dar alan kapsasın */
+  display: flex;
+  flex-direction: column; /* Dikey sıralama */
+  gap: 15px;
+  overflow-y: auto; /* Çok görsel varsa kaydırılabilir */
+  max-height: 500px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: -50px;
+}
+
+.thumbnail-gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.thumbnail-gallery img:hover,
+.thumbnail-gallery img.selected-thumbnail {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Zoom efekti için genel stil */
+.zoomable {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.zoomable:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Galeri Düzenlemesi */
+@media screen and (max-width: 992px) {
+  .product-gallery {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-image-container,
+  .thumbnail-gallery {
+    width: 100%;
+    max-height: none;
+  }
+
+  .thumbnail-gallery {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .thumbnail-gallery img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .thumbnail-gallery {
+    gap: 10px;
+  }
+
+  .thumbnail-gallery img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Product Info Styles */
+.product-info {
+  flex: 1;
+}
+
+.product-title-3 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  position: absolute;
+  top: 240px;
+  margin-left: -700px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+.review-count {
+  margin-left: 10px;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.product-code {
+  position: absolute;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  font-size: 16px;
+  margin-left: -180px;
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  width: 10%;
+  border-radius: 5px;
+}
+
+.availability {
+  position: absolute;
+  color: #28a745;
+  font-weight: bold;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  width: 10%;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-left: -180px;
+  margin-top: -30px;
+}
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #6c757d;
+  width: 94%;
+  height: 100px;
+  margin-left: 95px;
+  margin-top: 20px;
+}
+
+.current-price {
+  font-size: 30px;
+  font-weight: bold;
+  color: #dc3545;
+  margin-left: 75px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.discount-tag {
+  background-color: #dc3545;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Color Selection Styles */
+
+.color-selection {
+  position: absolute;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: -180px;
+}
+
+.color-selection h3 {
+  margin-bottom: 10px;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.color-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-button.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Quantity Selector Styles */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-left: -170px;
+  margin-top: 100px;
+  position: absolute;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantity-control button {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quantity-control button:hover {
+  background-color: #e9ecef;
+}
+
+.quantity-control span {
+  padding: 0 15px;
+  font-weight: bold;
+}
+.icon-btn {
+  gap: 15px;
+  display: flex;
+  margin-left: -180px;
+  position: absolute;
+  margin-top: -450px;
+}
+
+.add-to-cart-2 {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: -170px;
+  margin-top: -200px;
+  position: absolute;
+}
+
+.add-to-cart-2:hover {
+  background-color: #0056b3;
+}
+
+.wishlist-button-card {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.wishlist-button-card:hover,
+.share-button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.wishlist-button.wishlisted,
+.wishlist-button.wishlisted:hover {
+  color: #dc3545;
+  background-color: #fff0f3;
+}
+
+/* Bonus Info Styles */
+.bonus-info {
+  margin-top: -680px;
+  margin-left: -180px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f1f8ff;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0056b3;
+}
+
+.bonus-icon {
+  color: #28a745;
+  font-size: 24px;
+}
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+.installment-options {
+  max-width: 700px;
+  height: 350px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-top: 30px;
+  margin-left: 110px;
+  margin-bottom: 20px;
+}
+
+.installment-options h3 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.installment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  background-color: var(--background-color);
+}
+
+.installment-option:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.installment-option.selected {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.installment-option.selected .installment-price,
+.installment-option.selected .total-amount {
+  color: white;
+  opacity: 0.9;
+}
+
+.installment-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.installment-details span {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.installment-price-2 {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.total-amount {
+  font-weight: bold;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.no-installments {
+  text-align: center;
+  color: #777;
+  padding: 15px;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+}
+
+.installment-details-popup {
+  margin-top: -10%;
+  margin-left: -50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 180px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.popup-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.popup-header button {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.popup-header button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.popup-body {
+  padding: 20px;
+}
+
+.popup-body p {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-body strong {
+  color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Responsive Tasarım */
+@media screen and (max-width: 600px) {
+  .installment-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .installment-details {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .total-amount {
+    align-self: flex-end;
+  }
+}
+/* Product Details Tabs Styles */
+.product-details-tabs {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.tab-navigation {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.tab-navigation button {
+  padding: 12px 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #6c757d;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-navigation button.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+.tab-content {
+  padding: 0 10px;
+}
+
+.specifications {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.spec-name {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.reviews-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-user {
+  font-weight: bold;
+}
+
+.review-rating .star {
+  color: #ffc107;
+  margin-right: 3px;
+}
+
+.review-text {
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+  .product-details-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .main-image img {
+    max-height: 400px;
+  }
+
+  .specifications {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product-details-container {
+    padding: 10px;
+  }
+
+  .tab-navigation button {
+    padding: 10px 15px;
+  }
+
+  .main-image img {
+    max-height: 250px;
+  }
+
+  .wishlist-button,
+  .share-button {
+    width: 100%;
+    height: 50px;
+  }
+}
+
+/* Genel Container Stili */
+.carousel-container {
+  width: 45%; /* Tam genişlik */
+  height: 150px; /* Container yüksekliği */
+  overflow: hidden; /* Taşan içerikleri gizle */
+  position: relative; /* İçerik yerleşimi için gerekli */
+  border-radius: 10px; /* Kenarları yuvarlatılmış */
+  border: 1px solid #dc3545;
+  margin-left: 700px;
+}
+
+/* Slaytları Yatay Konumda Düzenleyen Stiller */
+.carousel-slides {
+  display: flex; /* Slaytları yatayda hizalar */
+  width: 100%; /* %100 genişlik */
+  transition: transform 1s ease; /* Geçiş animasyonu */
+}
+
+/* Her bir Slayt */
+.carousel-slide {
+  min-width: 100%; /* Her slayt tam genişlikte */
+  display: flex;
+  flex-direction: row; /* Resim solda, yazı sağda olacak şekilde düzenle */
+  align-items: center; /* Slayt içeriğini dikeyde ortalar */
+  justify-content: center; /* Slaytları yatayda ortalar */
+  padding: 20px; /* Slayt içindeki boşluk */
+  box-sizing: border-box; /* Padding hesaplamalarına dahil edilir */
+  text-align: left; /* Yazıların sola hizalanması */
+}
+
+/* Resimlerin Stili */
+.carousel-image {
+  width: 200px; /* Resim genişliği */
+  height: 120px; /* Resim yüksekliği */
+  object-fit: contain; /* Resmin orantılı şekilde kesilmesini sağlar */
+  margin-right: 20px; /* Resim ile metin arasına boşluk */
+}
+
+/* Başlık (Slayt Başlığı) */
+.carousel-title {
+  font-size: 1.8rem; /* Başlık boyutu */
+  font-weight: 600; /* Kalın yazı tipi */
+  color: #333; /* Koyu gri başlık rengi */
+  margin-bottom: 10px; /* Başlık ile metin arasında boşluk */
+}
+
+/* Metin (Slayt Açıklaması) */
+.carousel-text {
+  font-size: 1rem; /* Metin boyutu */
+  color: #777; /* Daha açık gri metin rengi */
+  line-height: 1.5; /* Satır aralığı */
+  margin: 0 auto; /* Ortalamak için */
+  max-width: 350px; /* Metin genişliğini sınırla */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 250px; /* Küçük ekranlarda daha düşük yükseklik */
+  }
+
+  .carousel-title {
+    font-size: 1.5rem; /* Başlık boyutu küçük ekranlar için küçültülür */
+  }
+
+  .carousel-text {
+    font-size: 0.9rem; /* Metin boyutu küçük ekranlar için küçültülür */
+    max-width: 300px; /* Metin genişliği daraltılır */
+  }
+
+  .carousel-image {
+    width: 100px; /* Resim boyutu küçük ekranlar için küçültülür */
+    height: 100px; /* Resim boyutu küçük ekranlar için küçültülür */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 200px; /* Çok küçük ekranlar için daha da küçültülmüş yükseklik */
+  }
+
+  .carousel-title {
+    font-size: 1.2rem; /* Başlık boyutunun daha da küçülmesi */
+  }
+
+  .carousel-text {
+    font-size: 0.8rem; /* Metin boyutunun daha da küçülmesi */
+    max-width: 250px; /* Metin genişliğini daha da daralt */
+  }
+
+  .carousel-image {
+    width: 80px; /* Resim boyutu çok küçük ekranlar için küçültülür */
+    height: 80px; /* Resim boyutu çok küçük ekranlar için küçültülür */
+  }
+}
