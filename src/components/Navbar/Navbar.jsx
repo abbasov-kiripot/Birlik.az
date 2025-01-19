@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import {
   FaSearch,
   FaShoppingCart,
@@ -19,17 +19,22 @@ import {
   FaTrash,
   FaMinus,
   FaPlus,
-} from 'react-icons/fa';
-import './Navbar.css';
-import Logo from '../../assets/image/Logo.png';
+  FaExchangeAlt,
+} from "react-icons/fa";
+import { BsShop } from "react-icons/bs";
+import { SlLocationPin } from "react-icons/sl";
+import { MdSecurity } from "react-icons/md";
+
+import "./Navbar.css";
+import Logo from "../../assets/image/Logo.png";
 import {
   increaseQuantity,
   decreaseQuantity,
   removeFromCart,
-} from '../slices/cartSlice';
+} from "../slices/cartSlice";
 
 const Navbar = () => {
-  const { items, totalQuantity, totalAmount } = useSelector((state) => state.cart); // totalAmount burada kullanılıyor
+  const { items, totalQuantity } = useSelector((state) => state.cart); // Toplam fiyat hesaplama için ayrı fonksiyon kullanacağız
   const dispatch = useDispatch();
 
   const [isAccountOpen, setIsAccountOpen] = useState(false);
@@ -38,16 +43,26 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const toggleAccountDropdown = () => {
-    setIsAccountOpen(!isAccountOpen);
+  // Toplam fiyatı hesaplama (toFixed yerine alternatif bir yöntem)
+  const calculateTotalPrice = () => {
+    const total = items.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
+    return Math.round(total * 100) / 100; // 2 ondalık basamağa yuvarla
   };
 
-  const handleMenuToggle = (menuName) => {
+  const toggleAccountDropdown = () => setIsAccountOpen(!isAccountOpen);
+  const handleMenuToggle = (menuName) =>
     setActiveMenu(activeMenu === menuName ? null : menuName);
+  const toggleCartDropdown = () => setIsCartOpen(!isCartOpen);
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle("dark-mode", !isDarkMode);
   };
-
-  const toggleCartDropdown = () => {
-    setIsCartOpen(!isCartOpen);
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    alert("Hesabdan çıxış etdiniz.");
   };
 
   const handleQuantityChange = (id, delta) => {
@@ -58,27 +73,11 @@ const Navbar = () => {
     }
   };
 
-  const handleRemoveItem = (id) => {
-    dispatch(removeFromCart(id));
-  };
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark-mode', !isDarkMode);
-  };
-
-  const handleSignOut = () => {
-    setIsLoggedIn(false);
-    alert('Hesabdan çıxış etdiniz.');
-  };
-
-  const formatPrice = (price) => {
-    return !isNaN(price) && price !== null ? price.toFixed(2) : '0.00';
-  };
+  const handleRemoveItem = (id) => dispatch(removeFromCart(id));
 
   return (
-    <div className={`navbar ${isDarkMode ? 'dark-mode' : ''}`}>
-      {/* Yuxarı Navbar */}
+    <div className={`navbar ${isDarkMode ? "dark-mode" : ""}`}>
+      {/* Üst Navbar */}
       <div className="navbar-top">
         <div className="top-1">
           <span>Sürətli və Pulsuz Çatdırılma</span>
@@ -101,12 +100,12 @@ const Navbar = () => {
 
       {/* Orta Navbar */}
       <div className="navbar-middle">
-        <img src={Logo} alt="Loqo" className="logo" />
+        <NavLink to="/">
+          <img src={Logo} alt="Loqo" className="logo" />
+        </NavLink>
+
         <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Bütün kateqoriyalarda axtar"
-          />
+          <input type="text" placeholder="Bütün kateqoriyalarda axtar" />
           <button className="search-btn">
             <FaSearch />
           </button>
@@ -127,18 +126,22 @@ const Navbar = () => {
                         <div className="cart-item-info">
                           <span>{item.name}</span>
                           <div className="cart-item-controls">
-                            <button onClick={() => handleQuantityChange(item.id, -1)}>
+                            <button
+                              onClick={() => handleQuantityChange(item.id, -1)}
+                            >
                               <FaMinus />
                             </button>
                             <span>{item.quantity}</span>
-                            <button onClick={() => handleQuantityChange(item.id, 1)}>
+                            <button
+                              onClick={() => handleQuantityChange(item.id, 1)}
+                            >
                               <FaPlus />
                             </button>
                             <button onClick={() => handleRemoveItem(item.id)}>
                               <FaTrash />
                             </button>
                           </div>
-                         
+                          <span>{Math.round(item.price * 100) / 100}₼</span>
                         </div>
                       </li>
                     ))}
@@ -148,7 +151,7 @@ const Navbar = () => {
                 )}
                 <div className="cart-total">
                   <span>Cəmi:</span>
-                  <span>${formatPrice(totalAmount)}</span>
+                  <span>{calculateTotalPrice()}₼</span>
                 </div>
               </div>
             )}
@@ -161,24 +164,53 @@ const Navbar = () => {
             {isAccountOpen && (
               <div className="account-dropdown">
                 <ul>
-                  <li>
+                  <NavLink className="li-2" to="/">
+                    <FaUser /> Hesabım
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/OrdersPage">
                     <FaBox /> Sifarişlərim
-                  </li>
-                  <li>
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/WalletPage">
                     <FaWallet /> Pulqabım
-                  </li>
-                  <li>
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/Favorites">
                     <FaRegHeart /> Sevimli Məhsullar
-                  </li>
-                  <li>
-                    <FaGift /> Hədiyyə Kartları
-                  </li>
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/">
+                    <SlLocationPin />
+                    Adresler
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/">
+                    <MdSecurity />
+                    Hesab guvenliyi
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/CouponPage">
+                    <FaGift />
+                    Kuponlar & Təkliflər
+                  </NavLink>
+
                   <li>
                     <FaCog /> Parametrlər
                   </li>
                   <li>
                     <FaBell /> Bildirişlər
                   </li>
+
+                  <NavLink className="li-2" to="/">
+                    <BsShop />
+                    Magazam
+                  </NavLink>
+
+                  <NavLink className="li-2" to="/">
+                    <FaExchangeAlt />
+                    Hesabı Dəyişdir
+                  </NavLink>
                   <li className="dark-mode">
                     <span>Qaranlıq Rejim</span>
                     <input type="checkbox" onChange={toggleDarkMode} />
@@ -195,16 +227,16 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Aşağı Navbar */}
+      {/* Alt Navbar */}
       <div className="navbar-bottom">
         <ul className="navbar-menu">
           <li
             className="menu-item"
-            onMouseEnter={() => handleMenuToggle('categories')}
+            onMouseEnter={() => handleMenuToggle("categories")}
             onMouseLeave={() => handleMenuToggle(null)}
           >
             Bütün Kateqoriyalar
-            {activeMenu === 'categories' && (
+            {activeMenu === "categories" && (
               <div className="mega-menu">
                 <ul>
                   <li>Elektronika</li>
@@ -222,10 +254,18 @@ const Navbar = () => {
               TEMU
             </NavLink>
           </li>
-          <li className="menu-item">Trendyol</li>
+          <li className="menu-item">
+            <NavLink to="/OrderForm" className="nav-link">
+              Trendyol
+            </NavLink>
+          </li>
           <li className="menu-item">Aliexpress</li>
           <li className="menu-item">Hepsiburada</li>
-          <li className="menu-item">N11</li>
+          <li className="menu-item">
+            <NavLink to="/PopularProducts" className="nav-link">
+              Trend Məsullar
+            </NavLink>
+          </li>
           <li className="menu-item">Mağaza Aç</li>
         </ul>
       </div>

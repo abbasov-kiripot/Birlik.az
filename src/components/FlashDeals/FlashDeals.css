@@ -13,7 +13,6 @@
   max-width: 1500px;
   margin: 0 auto;
   padding: 1.5rem;
-  margin-left: 55px;
 }
 
 .flash-deals-header {
@@ -88,7 +87,7 @@
 
 .flash-deals-products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
@@ -117,7 +116,8 @@
   max-height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
-  margin-left: 80px;
+  margin-left: 70px;
+  margin-top: 70px;
 }
 
 .flash-deals-card:hover .product-image-2 img {
@@ -160,6 +160,7 @@
   flex-grow: 1;
   gap: 0.5rem;
   position: relative;
+  margin-top: 30px;
 }
 
 .flash-deals-title {
@@ -181,7 +182,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  
 }
 
 .flash-deals-price del {
@@ -209,7 +210,7 @@
   color: white;
   position: absolute;
   top: -215px;
-  right: 240px;
+  right: 200px;
   background-color: #FF4136;
   padding: 5px 10px;
   border-radius: 20px;
@@ -225,8 +226,7 @@
   color: #ffd700;
 }
 .flash-deals-stock-2 {
-  background-color: #FF4136;
-  color: white;
+  color: #6c757d;
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -234,7 +234,7 @@
   align-items: center;
   gap: 5px;
   width: 100px;
-  margin-left: 170px;
+  margin-left: 160px;
   position: absolute;
 }
 .flash-deals-buttons {
@@ -255,9 +255,12 @@
   transition: all var(--transition-speed) ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: -220px;
+  top: -230px;
   right: 10px;
   z-index: 10;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .wishlist-button-2:hover {

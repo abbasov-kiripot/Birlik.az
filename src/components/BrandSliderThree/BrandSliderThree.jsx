@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import Slider from "react-slick";
-import "./BrandSlider.css";
+import "./BrandSliderThree.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -51,7 +51,7 @@ const brands = [
   { id: 20, name: "xiaominewlogo", img: Xiaominewlogo },
 ];
 
-const BrandSlider = () => {
+const BrandSliderThree = () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -71,10 +71,10 @@ const BrandSlider = () => {
   };
 
   return (
-    <div className="brand-slider">
+    <div className="brand-slider-three-3">
       <Slider {...settings}>
         {brands.map((brand) => (
-          <div key={brand.id} className="brand-item">
+          <div key={brand.id} className="brand-item-3">
             <img src={brand.img} alt={brand.name} />
           </div>
         ))}
@@ -83,4 +83,4 @@ const BrandSlider = () => {
   );
 };
 
-export default BrandSlider;
+export default BrandSliderThree;

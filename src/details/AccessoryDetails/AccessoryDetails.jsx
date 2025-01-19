@@ -234,7 +234,7 @@ const AccessoryDetails = ({ product }) => {
           <button className='add-to-card-btn' onClick={productData.actions.addToCart}><FaCartPlus /> Səbətə Əlavə Et</button>
 
           {/* Action Buttons */}
-          <div className="action-buttons">
+          <div className="action-buttons-4">
             <button onClick={productData.actions.toggleWishlist}>
               <FaHeart /> {wishlist ? '' : ''}
             </button>

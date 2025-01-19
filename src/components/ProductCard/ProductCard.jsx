@@ -1,6 +1,17 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import { FaBalanceScale, FaHeart, FaRegHeart, FaShoppingCart, FaRegStar, FaRegCommentDots } from "react-icons/fa";
+import {
+  FaBalanceScale,
+  FaHeart,
+  FaRegHeart,
+  FaShoppingCart,
+  FaRegStar,
+  FaRegCommentDots,
+} from "react-icons/fa";
 import "./ProductCard.css";
+
+import { addToCart } from "../slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductCard = () => {
   // Üçlü kart dizisi (toplam 9 ürün)
@@ -20,7 +31,8 @@ const ProductCard = () => {
     {
       id: 2,
       name: "Smartfon Samsung Galaxy S24 Ultra 12GB/256GB TITANIUM VIOLET (S928)",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-samsung-galaxy-s24-ultra-12gb256gb-titanium-violet-s928_1.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-samsung-galaxy-s24-ultra-12gb256gb-titanium-violet-s928_1.webp&w=3840&q=75",
       discount: "-200 ₼",
       oldPrice: 1499.99,
       newPrice: 1299.99,
@@ -32,7 +44,8 @@ const ProductCard = () => {
     {
       id: 3,
       name: "Smartfon Apple iPhone 15 128GB BLACK",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-apple-iphone-15-128gb-black_1.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-apple-iphone-15-128gb-black_1.webp&w=3840&q=75",
       discount: "-100 ₼",
       oldPrice: 1199.99,
       newPrice: 1099.99,
@@ -44,7 +57,8 @@ const ProductCard = () => {
     {
       id: 4,
       name: "Notbuk Lenovo IdeaPad 3 15IAU7/ 15.6' FHD IPS 300nits/ i5 1235U/ 8GB/ 512GB",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fnotbuk-lenovo-ideapad-3-15iau7-156-fhd-ips-300nits-i5-1235u-8gb-512gb-ssd-_VrGRej6.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fnotbuk-lenovo-ideapad-3-15iau7-156-fhd-ips-300nits-i5-1235u-8gb-512gb-ssd-_VrGRej6.webp&w=3840&q=75",
       discount: "-300 ₼",
       oldPrice: 2499.99,
       newPrice: 2199.99,
@@ -56,11 +70,12 @@ const ProductCard = () => {
     {
       id: 5,
       name: "Apple MacBook Pro 16 M3 Pro (12C CPU/18C GPU) 36GB, 512GB SSD -",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fapple-macbook-pro-16-m3-pro-12c-cpu18c-gpu-36gb-512gb-ssd-space-black-mrw23rua_1.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fapple-macbook-pro-16-m3-pro-12c-cpu18c-gpu-36gb-512gb-ssd-space-black-mrw23rua_1.webp&w=3840&q=75",
       discount: "-350 ₼",
       oldPrice: 2599.99,
       newPrice: 2249.99,
-      installmentPrice: { months: 12, pricePerMonth: 187.50 },
+      installmentPrice: { months: 12, pricePerMonth: 187.5 },
       reviewsCount: 400,
       rating: 4.6,
       isFavorite: false,
@@ -68,7 +83,8 @@ const ProductCard = () => {
     {
       id: 6,
       name: "Smartfon Apple iPhone 15 PRO MAX 256GB NATURAL TITANIUM",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-apple-iphone-15-pro-max-256gb-natural-titanium_1.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmartfon-apple-iphone-15-pro-max-256gb-natural-titanium_1.webp&w=3840&q=75",
       discount: "-200 ₼",
       oldPrice: 1399.99,
       newPrice: 1199.99,
@@ -80,7 +96,8 @@ const ProductCard = () => {
     {
       id: 7,
       name: "Smart saat BOROFONE BD7 GRAY",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmart-saat-borofone-bd7-gray_1.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmart-saat-borofone-bd7-gray_1.webp&w=3840&q=75",
       discount: "-50 ₼",
       oldPrice: 399.99,
       newPrice: 349.99,
@@ -92,7 +109,8 @@ const ProductCard = () => {
     {
       id: 8,
       name: "Smart saat Apple Watch Series 9 GPS, 41mm Midnight Aluminium Case With",
-      image: "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmart-saat-apple-watch-series-9-gps-41mm-midnight-aluminium-case-with-midn_kacMb68.webp&w=3840&q=75",
+      image:
+        "https://new.bakuelectronics.az/_next/image?url=https%3A%2F%2Fimg.b-e.az%2Fmedia%2FinventImages%2Fsmart-saat-apple-watch-series-9-gps-41mm-midnight-aluminium-case-with-midn_kacMb68.webp&w=3840&q=75",
       discount: "-100 ₼",
       oldPrice: 499.99,
       newPrice: 399.99,
@@ -103,12 +121,28 @@ const ProductCard = () => {
     },
   ];
 
-  const [favorites, setFavorites] = useState(products.map((product) => product.isFavorite));
+  const [favorites, setFavorites] = useState(
+    products.map((product) => product.isFavorite)
+  );
 
   const toggleFavorite = (index) => {
     const updatedFavorites = [...favorites];
     updatedFavorites[index] = !updatedFavorites[index];
     setFavorites(updatedFavorites);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.newPrice,
+        quantity: 1,
+      })
+    );
+    
   };
 
   return (
@@ -139,16 +173,31 @@ const ProductCard = () => {
               <span className="new-price">{product.newPrice} ₼</span>
             </div>
             <div className="instalmenttt">
-              <span className="installment-price">{product.installmentPrice.months} ay</span>
-              <span className=""> {product.installmentPrice.pricePerMonth} ₼</span>
+              <span className="installment-price">
+                {product.installmentPrice.months} ay
+              </span>
+              <span className="">
+                {" "}
+                {product.installmentPrice.pricePerMonth} ₼
+              </span>
             </div>
 
             <div className="product-actions">
-              <button className="add-to-cart">
+              <button
+                onClick={() => handleAddToCart(product)}
+                className="add-to-cart"
+              >
                 <FaShoppingCart /> Səbətə əlavə et
               </button>
-              <button className="favorite-btn" onClick={() => toggleFavorite(index)}>
-                {favorites[index] ? <FaHeart className="active" /> : <FaRegHeart />}
+              <button
+                className="favorite-btn"
+                onClick={() => toggleFavorite(index)}
+              >
+                {favorites[index] ? (
+                  <FaHeart className="active" />
+                ) : (
+                  <FaRegHeart />
+                )}
               </button>
             </div>
           </div>

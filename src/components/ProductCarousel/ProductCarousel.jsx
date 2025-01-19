@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { FaHeart, FaShoppingCart, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import televizor from "../../assets/image/televizor.png";
 import ps5menu from "../../assets/image/ps5menu.png";
 import "./ProductCarousel.css"
@@ -35,11 +36,6 @@ const ProductCarousel = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - 1 : prevIndex - 1
-    );
-  };
 
   const selectColor = (productId, color) => {
     setSelectedColors((prev) => ({ ...prev, [productId]: color }));

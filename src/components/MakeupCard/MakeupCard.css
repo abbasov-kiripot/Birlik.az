@@ -1,3 +1,6 @@
+
+
+
 :root {
     /* Rəng Palitası */
     --text-primary: #333;
@@ -12,24 +15,26 @@
   
   .makeup-card-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: 30px;
-    margin-bottom: 70px;
-    width: 80%;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 1500px;
+  margin: 0 auto;
+  padding: 1.5rem;
+
   }
   
   .makeup-card {
-    width: 300px;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  margin-left: 70px;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  height: 500px;
+  max-width: 300px;
+  margin-bottom: 40px;
+  height: 520px;
   }
   
   .makeup-card:hover {
@@ -49,7 +54,7 @@
     transition: transform 0.3s ease;
     object-fit: contain;
     object-position: center;
-    margin-left: 55px;
+    margin-left: 45px;
     margin-top: -30px;
   }
   
@@ -101,7 +106,7 @@
     justify-content: center;
     position: absolute;
     margin-top: 40px;
-    margin-left: 180px;
+    margin-left: 150px;
   }
   
   .makeup-card-description {
@@ -142,7 +147,7 @@
     font-size: 0.95rem;
     position: absolute;
     margin-top: 135px;
-    margin-left: 170px;
+    margin-left: 140px;
   }
   
   .makeup-card-features {
@@ -168,11 +173,11 @@
   }
   
   .makeup-card-stock {
-    background-color: #FF4500;
+    background-color: #FF4136;
     color: var(--white);
     padding: 5px 10px;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     display: flex;
     text-align: center;
     align-items: center;
@@ -181,12 +186,13 @@
     width: 100px;
     margin-top: 40px;
     position: absolute;
-    margin-left: 77px;
+    margin-left: 170px;
+    margin-top: -200px;
+    width: 80px;
   }
   
   .makeup-card-stock.low-stock {
-    color: #FF4500;
-    animation: pulse 1.5s infinite;
+    color: #FF4136;
   }
   
   .makeup-card-button {

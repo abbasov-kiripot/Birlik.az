@@ -1,7 +1,7 @@
 /* Global Reset and Base Styles */
 :root {
-  --primary-color: #e74c3c;
-  --primary-color-light: #ff6f5e;
+  --primary-color: #FF4136;
+  --primary-color-light: #FF4136;
   --text-color: #333;
   --background-color: #f7f7f7;
   --white: #ffffff;
@@ -10,14 +10,16 @@
 
 .product-list-container-modern{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 50px;
   margin-bottom: 50px;
-  width: 80%;
+  gap:20px;
+  max-width: 1400px;
+  margin-left: 50px;
 }
 
 .stock-info{
-  background-color:#e74c3c;
+  background-color:#FF4136;
   color: var(--white);
   padding: 5px 10px;
   border-radius: 20px;
@@ -28,17 +30,15 @@
   margin-top: 10px;
   width: 100px;
 }
-.product-card-modern {
-  transition: all var(--transition-speed) ease;
-  transform-origin: center;
-  width: 300px;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  position: relative;
-  margin-left: 70px;
+.product-card-modern-5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   margin-bottom: 50px;
+  border-radius: 10px;
 }
 
 .product-card-modern:hover {
@@ -69,17 +69,17 @@
 }
 
 /* Action Buttons */
-.product-card-actions {
+.product-card-actions-3 {
   position: absolute;
-  top: 15px;
-  right: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   z-index: 10;
+  margin-left: 330px;
+  margin-top: -150px;
 }
 
-.action-button {
+.action-button-3 {
   background-color: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
@@ -93,14 +93,14 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.action-button:hover {
-  background-color:#e74c3c;
+.action-button-3:hover {
+  background-color:#FF4136;
   color: var(--white);
   transform: scale(1.1);
 }
 
-.action-button.favorite-btn.active {
-  color:#e74c3c;
+.action-button-3.favorite-btn.active {
+  color:#FF4136;
 }
 
 /* Image */
@@ -111,12 +111,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .product-image-modern {
-  max-width: 110%;
-  max-height: 110%;
+  max-width: 150%;
+  max-height: 150%;
   object-fit: contain;
   transition: transform var(--transition-speed) ease;
   position: absolute;

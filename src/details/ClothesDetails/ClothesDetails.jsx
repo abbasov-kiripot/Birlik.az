@@ -1,4 +1,5 @@
 // ProductDetailsPage.jsx
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './ClothesDetails.css';
 import { FaCartPlus, FaHeart, FaExchangeAlt, FaShareAlt, FaPhoneAlt, FaTruck, FaShippingFast, FaStar } from 'react-icons/fa';
@@ -234,7 +235,7 @@ const ClothesDetails = ({ product }) => {
           <button className='add-to-card-btn' onClick={productData.actions.addToCart}><FaCartPlus /> Səbətə Əlavə Et</button>
 
           {/* Action Buttons */}
-          <div className="action-buttons">
+          <div className="action-buttons-3">
             <button onClick={productData.actions.toggleWishlist}>
               <FaHeart /> {wishlist ? '' : ''}
             </button>

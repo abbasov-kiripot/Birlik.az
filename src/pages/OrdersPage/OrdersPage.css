@@ -1,0 +1,817 @@
+/* Ana Container Stilleri */
+.orders-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Header Stilleri */
+.orders-header {
+  margin-top: 200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-title h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ff4136;
+  margin: 0;
+}
+
+.header-icon {
+  color: #ff4136;
+  font-size: 1.75rem;
+}
+
+/* Arama ve Filtre Stilleri */
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-box-3 {
+  position: relative;
+}
+
+.search-box-3 input {
+  width: 300px;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+}
+
+.search-box-3 input:focus {
+  outline: none;
+  border-color: #ff4136;
+}
+
+.search-icon-3 {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff4136;
+}
+
+/* İstatistik Kartları */
+.orders-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card h3 {
+  color: #ff4136;
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.stat-card p {
+  color: #1e293b;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Tablo Stilleri */
+.orders-table-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.orders-table th {
+  background: #f8fafc;
+  padding: 1rem;
+  font-weight: 500;
+  color: #ff4136;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.orders-table th:hover {
+  background: #f1f5f9;
+}
+
+.orders-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.order-id {
+  font-family: "JetBrains Mono", monospace;
+  color: #ff4136;
+  font-weight: 500;
+}
+
+/* Durum Badge'leri */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-shipping {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-processing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Buton Stilleri */
+.action-button-4 {
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.acction-4 {
+  gap: 20px;
+  padding: 10px;
+  margin-left: 15px;
+}
+.detail-button-4 {
+  background: #ff4136;
+  color: white;
+  font-size: 25px;
+}
+
+.detail-button-4:hover {
+  background: black;
+}
+
+/* Modal Stilleri */
+.filter-modal,
+.order-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.filter-modal.show,
+.order-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.show .modal-content {
+  transform: translateY(0);
+}
+
+/* Sayfalama Stilleri */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: #ff4136;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #ff4136;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-number {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  color: #ff4136;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-number.active {
+  background: #ff4136;
+  color: white;
+  border-color: #ff4136;
+}
+
+/* Sipariş Takip Sistemi */
+.order-tracker {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  padding: 0 2rem;
+}
+
+.tracker-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4136;
+  z-index: 1;
+}
+
+.completed .step-icon {
+  background: #ff4136;
+  color: white;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1024px) {
+  .orders-page {
+    padding: 1rem;
+  }
+
+  .orders-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .orders-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .orders-table th:nth-child(3),
+  .orders-table td:nth-child(3),
+  .orders-table th:nth-child(6),
+  .orders-table td:nth-child(6) {
+    display: none;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .header-actions {
+    flex-direction: column;
+  }
+}
+/* Ana container */
+.order-details {
+  display: flex;
+  width: 180vh;
+  height: 70vh;
+  background: #f8f9fa;
+  overflow: hidden;
+  position: relative;
+  margin-top: 180px;
+  border-radius: 10px;
+}
+
+/* Sol panel */
+.order-details__left {
+  flex: 1;
+  padding: 2rem;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4136 #f1f1f1;
+}
+
+.order-details__left::-webkit-scrollbar {
+  width: 6px;
+}
+
+.order-details__left::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.order-details__left::-webkit-scrollbar-thumb {
+  background: #ff4136;
+  border-radius: 4px;
+}
+
+/* Sağ panel */
+.order-details__right {
+  flex: 1.5;
+  padding: 2rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4136 #f1f1f1;
+}
+
+.order-details__right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.order-details__right::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.order-details__right::-webkit-scrollbar-thumb {
+  background: #ff4136;
+  border-radius: 4px;
+}
+
+/* Kartlar */
+.order-details__card {
+  background: white;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.order-details__card:hover {
+  border-color: #ff4136;
+  box-shadow: 0 2px 12px rgba(255, 65, 54, 0.1);
+}
+
+/* Başlıklar */
+.order-details__title {
+  color: #ff4136;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 65, 54, 0.1);
+  letter-spacing: 0.5px;
+}
+
+/* Bilgi satırları */
+.order-details__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-details__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.order-details__row:hover {
+  background: rgba(255, 65, 54, 0.02);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.order-details__label {
+  color: #555;
+  font-weight: 500;
+}
+
+.order-details__value {
+  color: #333;
+  font-weight: 500;
+}
+
+.order-details__value--price {
+  color: #ff4136;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Durum badge */
+.order-details__badge {
+  background: rgba(255, 65, 54, 0.1);
+  color: #ff4136;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.order-details__badge:hover {
+  background: rgba(255, 65, 54, 0.2);
+}
+
+/* Tablo stilleri */
+.order-details__table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.order-details__table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.order-details__table th {
+  background: #fff;
+  color: #555;
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.order-details__table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.order-details__table tr:hover td {
+  background: rgba(255, 65, 54, 0.02);
+}
+
+.order-details__table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive tasarım */
+@media (max-width: 1024px) {
+  .order-details {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .order-details__left,
+  .order-details__right {
+    width: 100%;
+    padding: 1.5rem;
+    overflow: visible;
+  }
+
+  .order-details__left {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .order-details__table {
+    font-size: 0.875rem;
+  }
+
+  .order-details__table td,
+  .order-details__table th {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .order-details__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .order-details__badge {
+    align-self: flex-start;
+  }
+
+  .order-details__table-wrapper {
+    margin: 0 -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+.close-button {
+  position: fixed;
+  margin-top: 12%;
+  margin-left: -40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffff;
+  border: none;
+  font-size: 20px;
+  transition: 0.5s all ease;
+}
+
+.close-button:hover {
+  background-color: #ff4136;
+  transition: 0.5s all ease;
+  color: white;
+}
+
+/* Sekundar Düymə Stili */
+.button-secondary {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: #e0e0e0;
+  border-color: #aaa;
+}
+
+/* Primar Düymə Stili */
+.button-primary {
+  padding: 10px 20px;
+  background-color: #ff4136;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #ff4136;
+}
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #ff4136; /* Mavi rəng */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-button:hover {
+  background-color: black; /* Daha tünd mavi */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.filter-button:active {
+  transform: scale(0.98);
+}
+
+.filter-button span {
+  margin-left: 5px; /* İkon və mətn arasında boşluq */
+}
+
+.filter-button svg {
+  font-size: 20px; /* İkon ölçüsü */
+}
+/* Modal Ümumi Dizayn */
+.filter-modal {
+  position: fixed;
+  top: 53%;
+  left: 81%;
+  transform: translate(-50%, -50%);
+  background-color: #ff4136;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1000;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.filter-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Başlıq Dizaynı */
+.filter-modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white; /* Başlıq rəngi */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Bölmə Dizaynı */
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-section label {
+  font-size: 1rem;
+  color: white; /* Etiket rəngi */
+  font-weight: 500;
+}
+
+.filter-section input,
+.filter-section select {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.3s;
+}
+
+.filter-section input:focus,
+.filter-section select:focus {
+  border-color: white; /* Focus rəngi */
+  outline: none;
+}
+
+/* Düymələr Dizaynı */
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button-secondary,
+.button-primary {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.button-secondary {
+  background: white; /* İkinci düymə rəngi */
+  color: #ff4136;
+}
+
+.button-secondary:hover {
+  background: black; /* Hover zamanı ikinci düymə rəngi */
+  color: white;
+}
+
+.button-primary {
+  background: black; /* Birinci düymə rəngi */
+  color: #fff;
+}
+
+.button-primary:hover {
+  background: white; /* Hover zamanı birinci düymə rəngi */
+  color: #ff4136;
+}
+
+/* Mobil uyğunlaşdırma */
+@media (max-width: 600px) {
+  .filter-modal {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .filter-modal-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

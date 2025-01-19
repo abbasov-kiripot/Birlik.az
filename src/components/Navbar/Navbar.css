@@ -29,7 +29,13 @@
   will-change: transform;
 
 }
-
+.cart-item-info{
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+  text-align: center;
+  align-items: center;
+}
 /* Sophisticated Top Bar */
 .navbar-top {
   background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
@@ -302,7 +308,7 @@
 .account-dropdown {
   position: absolute;
   top: 120%;
-  right: -80px;
+  right: -50px;
   width: 300px;
   background: #F44B33 ;
   border-radius: 15px;
@@ -327,6 +333,8 @@
 
 .account-dropdown ul {
   list-style: none;
+  text-decoration: none;
+
 }
 
 .account-dropdown li {
@@ -338,12 +346,36 @@
   transition: var(--transition-smooth);
   color: var(--text-secondary);
   cursor: pointer;
+  text-decoration: none;
+}
+
+.account-dropdown .li-2{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.account-dropdown .li-2:hover {
+  background-color: var(--background-light);
+  color: var(--primary-red);
+  transform: translateX(5px);
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+
 }
 
 .account-dropdown li:hover {
   background-color: var(--background-light);
   color: var(--primary-red);
   transform: translateX(5px);
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+
 }
 
 .account-dropdown li svg {

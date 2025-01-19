@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./Home.css";
 import Header from "../components/Header/Header";
@@ -9,6 +10,7 @@ import ProductList from "../components/ProductList/ProductList";
 import FlashDeals from "../components/FlashDeals/FlashDeals";
 import BrandSliderto from "../components/BrandSliderto/BrandSliderto";
 import MakeupCard from "../components/MakeupCard/MakeupCard";
+import BrandSliderThree from "../components/BrandSliderThree/BrandSliderThree";
 
 
 const Home = () => {
@@ -16,8 +18,9 @@ const Home = () => {
     <div>
       <Header />
       <FlashDeals/>
-      <BrandSliderto />
+      <BrandSliderThree />
       <MakeupCard/>
+      <BrandSliderto />
       <ProductList/>
       <BrandSlider />
       <ProductCard />

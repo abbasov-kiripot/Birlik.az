@@ -1,0 +1,206 @@
+/* CouponView.css */
+.view_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-top: 200px;
+  }
+  
+  .view_navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 24px;
+  }
+  
+  .nav_list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 32px;
+  }
+  
+  .nav_button {
+    background: none;
+    border: none;
+    padding: 12px 0;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+  }
+  
+  .nav_button--active {
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .nav_button--active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+  
+  .nav_help {
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .coupon_input_wrapper {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .coupon_input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .coupon_input::placeholder {
+    color: #999;
+  }
+  
+  .coupon_submit {
+    padding: 12px 24px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .seller_coupon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+  
+  .seller_icon {
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .empty_state {
+    text-align: center;
+    padding: 48px 0;
+  }
+  
+  .empty_icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 24px;
+  }
+  
+  .empty_text {
+    color: #333;
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .help_section {
+    margin-top: 48px;
+  }
+  
+  .help_text {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .help_buttons {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .account_button,
+  .service_button {
+    flex: 1;
+    position: relative;
+    text-align: left;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .social_icons {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 18px;
+  }
+  
+  .service_icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 12px;
+  }
+  
+  /* Hover States */
+  .coupon_submit:hover,
+  .seller_coupon:hover,
+  .account_button:hover,
+  .service_button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Focus States */
+  .coupon_input:focus {
+    outline: none;
+    border-color: #999;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .help_buttons {
+      flex-direction: column;
+    }
+  
+    .nav_list {
+      gap: 16px;
+    }
+  
+    .coupon_input_wrapper {
+      flex-direction: column;
+    }
+  
+    .coupon_submit {
+      width: 100%;
+    }
+  }

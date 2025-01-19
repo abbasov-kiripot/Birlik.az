@@ -1,5 +1,5 @@
 /* Brand slider üçün əsas stil */
-.brand-slider-to {
+.brand-slider-three-3 {
     margin: 20px auto;
     padding: 10px 0;
     border-radius: 10px; /* Yumşaq künclər */
@@ -9,7 +9,7 @@
   }
   
   /* Slider içində hər bir marka elementi */
-  .brand-item {
+  .brand-item-3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
   }
   
   /* Şəkillərin ölçüsü və uyğunlaşması */
-  .brand-item img {
+  .brand-item-3 img {
     width: 80px; /* Maksimum eni */
     height: 80px; /* Maksimum hündürlüyü */
     object-fit: contain; /* Şəkil nisbətini qoruyaraq uyğunlaşma */
@@ -30,13 +30,13 @@
   }
   
   
-  .brand-item:hover img {
+  .brand-item-3:hover img {
     filter: grayscale(0); /* Rəngləri geri qaytar */
   }
   
   /* Mobil cihazlara uyğun tənzimləmə */
   @media (max-width: 768px) {
-    .brand-item img {
+    .brand-item-3 img {
       max-width: 80px;
       max-height: 40px;
     }
