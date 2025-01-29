@@ -23,6 +23,8 @@ import OrderForm from "./pages/OrderForm/OrderForm";
 import Favorites from "./pages/Favorites/Favorites";
 import BrandSliderThree from "./components/BrandSliderThree/BrandSliderThree";
 import CouponPage from "./pages/CouponPage/CouponPage";
+import AccountPage from "./pages/accountpage/accountpage";
+import OrderDetails from "./details/OrderDetails/OrderDetails";
 
 const App = () => {
   return (
@@ -51,6 +53,9 @@ const App = () => {
           <Route path="/OrderForm" element={<OrderForm />}/>
           <Route path="/Favorites" element={<Favorites />}/>\
           <Route path="/CouponPage" element={<CouponPage />}/>
+          <Route path="/AccountPage" element={<AccountPage />}/>
+          <Route path="/OrderDetails" element={<OrderDetails />}/>
+
         </Route>
       </Routes>
     </div>

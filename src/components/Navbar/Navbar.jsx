@@ -164,7 +164,7 @@ const Navbar = () => {
             {isAccountOpen && (
               <div className="account-dropdown">
                 <ul>
-                  <NavLink className="li-2" to="/">
+                  <NavLink className="li-2" to="/AccountPage">
                     <FaUser /> Hesabım
                   </NavLink>
 
